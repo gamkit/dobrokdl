@@ -27,18 +27,28 @@ Route::group(['prefix' => '/'], function() {
     Route::get('/about/trustees', 'AboutController@trustees')->name('kdl.about.trustees');
 
     
-    Route::get('/news', 'NewsController@index')->name('kdl.news');
+    // Route::get('/news', 'NewsController@index')->name('kdl.news');
+    Route::resource('/news', 'NewsController', ["names" => [
+        "index" => "kdl.news",
+        "show" => "kdl.news.show"
+    ]]);
     Route::get('/medianews', 'MediaNewsController@index')->name('kdl.medianews');
 
     
+    Route::get('/collects/urgent', 'CollectsController@urgent')->name("kdl.collects.urgent");
     Route::resource('/collects', 'CollectsController', ["names" => [
         "index" => "kdl.collects",
         "show" => "kdl.collects.show"
     ]]);
- 
 
-
-    Route::get('/projects', 'ProjectsController@index')->name('kdl.projects');
+    
+    /* 
+    * Проекты
+    */
+    Route::resource('/projects', 'ProjectsController', ["names" => [
+        "index" => "kdl.projects",
+        "show" => "kdl.projects.show"
+    ]]);
 
 
     Route::get('/volunteers', 'VolunteersController@index')->name('kdl.volunteers');

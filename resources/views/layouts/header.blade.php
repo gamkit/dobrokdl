@@ -3,7 +3,7 @@
     <div class="header__inner">
         <div class="header__top row">
         
-        {!! Menu::display('kdl_menu', 'layouts.topmenu') !!}
+        {!! Menu::display('kdl_menu', 'layouts.menus.topmenu') !!}
 
         <div class="header__r-links row"><a class="header__help-link" href="help.html">Нужна помощь!</a>
             <ul class="header__social-links social-links social-links--theme--white row">

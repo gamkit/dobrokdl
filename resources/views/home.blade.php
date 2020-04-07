@@ -20,19 +20,15 @@
             <div class="container">
               <div class="home-about__desc">
                 <h2>О фонде</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.</p>
+                <p>Благотворительный Фонд социальной помощи и поддержки граждан "Клуб Добрых Людей (КДЛ)" учрежден 11 января 2016 года. </p>
               </div>
               <div class="home-about__collected">
                 <ul class="home-about__collected-info-list collected-info-list row">
+                  @foreach($collectreports as $report)
                   <li class="collected-info-list__item collected-info-item">
-                    <p class="collected-info-item__amount">11 522 000 <b>р.</b></p><span>Собрано за 2017</span>
+                    <p class="collected-info-item__amount">{{ $report->sum }} <b>р.</b></p><span>{{ $report->title }}</span>
                   </li>
-                  <li class="collected-info-list__item collected-info-item">
-                    <p class="collected-info-item__amount">245 000 <b>р.</b></p><span>Собрано за февраль</span>
-                  </li>
-                  <li class="collected-info-list__item collected-info-item">
-                    <p class="collected-info-item__amount">25 001 540 <b>р.</b></p><span>За все время</span>
-                  </li>
+                  @endforeach
                 </ul>
               </div>
             </div>
@@ -46,18 +42,28 @@
             <h3 class="home-collects__heading">Им нужна ваша помощь</h3>
             <ul class="home-collects__collects-list owl-carousel collects-list__owl-carousel collects-list owl-carousel--custom-nav-1">
             @foreach($collects as $collect)
-              @php
+            @php
                 $collect_done = null;
+                $collect_urgent = null;
+
                 if($collect->status) {
                   $collect_done = "collect-item--done";
                 }
+
+                if($collect->quickly_collect) {
+                  $collect_urgent = "collect-item--urgent";
+                }
+                if($collect->status && $collect->quickly_collect) {
+                  $collect_urgent = null;
+                }
               @endphp
           
-              <li class="collect-item {{ $collect_done }}">
+              <li class="collect-item {{ $collect_done }} {{ $collect_urgent }}">
                 <a class="collect-item__link" href="{{ route('kdl.collects.show', $collect->id) }}">   
                   <div class="collect-item__preview">
                     <img src="/storage/{{ $collect->photo }}" alt="">
                     <div class="collect-item__title-done">Сбор закрыт</div>
+                    <div class="collect-item__title-urgent">Срочный сбор</div>
                   </div>
                   <div class="collect-item__desc">
                     <p class="collect-item__name" title="{{ $collect->diagnoz }}"><b>{{ $collect->fullname }}</b>, 10 лет<br/><span>{{ mb_strimwidth($collect->diagnoz, 0, 40, "...") }}</span></p>
@@ -74,6 +80,7 @@
          
               
             </ul>
+            <a class="home-collects__collects-link" href="{{ route('kdl.collects') }}">Все сборы</a>
           </div>
         </div>
       </section>
@@ -101,14 +108,9 @@
           <div class="home-partners__inner">
             <h3 class="home-partners__heading">Наши партнеры</h3>
             <ul class="partners-list home-partners__partners-list owl-carousel partners-list__owl-carousel">
-              <li class="item partners-list__item partner-item"><img src="img/partner.jpg" alt=""></li>
-              <li class="item partners-list__item partner-item"><img src="img/partner.jpg" alt=""></li>
-              <li class="item partners-list__item partner-item"><img src="img/partner.jpg" alt=""></li>
-              <li class="item partners-list__item partner-item"><img src="img/partner.jpg" alt=""></li>
-              <li class="item partners-list__item partner-item"><img src="img/partner.jpg" alt=""></li>
-              <li class="item partners-list__item partner-item"><img src="img/partner.jpg" alt=""></li>
-              <li class="item partners-list__item partner-item"><img src="img/partner.jpg" alt=""></li>
-              <li class="item partners-list__item partner-item"><img src="img/partner.jpg" alt=""></li>
+              @foreach($partners as $partner)
+                <li class="item partners-list__item partner-item"><img src="/storage/{{ $partner->logo }}" alt=""></li>
+              @endforeach
             </ul>
           </div>
         </div>
@@ -120,49 +122,21 @@
             <div class="home-news__inner">
               <h3 class="home-news__heading">Последние новости</h3>
               <ul class="home-news__news-list owl-carousel news-list__owl-carousel news-list owl-carousel--custom-nav-1">
-                <!-- - -->
-                <li class="news-item"><a href="">
-                    <div class="news-item__preview"><img src="uploads/images/news_item.jpg" alt=""></div>
+                
+              @foreach($posts as $post)
+                <li class="news-item">
+                  <a href="{{ route('kdl.news.show', $post->id) }}">
+                    <div class="news-item__preview"><img src="/storage/{{ $post->image }}" alt=""></div>
                     <div class="news-item__info">
-                      <h4 class="news-item__title">Знакомство с ментальной арифметикой...</h4><span class="news-item__date">23.04.2019</span>
-                      <p class="news-item__text">Наши маленькие подопечные продолжают развивать умственные и творческие способности.</p>
-                    </div></a></li>
-                <!-- - -->
-                <li class="news-item"><a href="">
-                    <div class="news-item__preview"><img src="uploads/images/news_item.jpg" alt=""></div>
-                    <div class="news-item__info">
-                      <h4 class="news-item__title">Знакомство с ментальной арифметикой...</h4><span class="news-item__date">23.04.2019</span>
-                      <p class="news-item__text">Наши маленькие подопечные продолжают развивать умственные и творческие способности.</p>
-                    </div></a></li>
-                <!-- - -->
-                <li class="news-item"><a href="">
-                    <div class="news-item__preview"><img src="uploads/images/news_item.jpg" alt=""></div>
-                    <div class="news-item__info">
-                      <h4 class="news-item__title">Знакомство с ментальной арифметикой...</h4><span class="news-item__date">23.04.2019</span>
-                      <p class="news-item__text">Наши маленькие подопечные продолжают развивать умственные и творческие способности.</p>
-                    </div></a></li>
-                <!-- - -->
-                <li class="news-item"><a href="">
-                    <div class="news-item__preview"><img src="uploads/images/news_item.jpg" alt=""></div>
-                    <div class="news-item__info">
-                      <h4 class="news-item__title">Знакомство с ментальной арифметикой...</h4><span class="news-item__date">23.04.2019</span>
-                      <p class="news-item__text">Наши маленькие подопечные продолжают развивать умственные и творческие способности.</p>
-                    </div></a></li>
-                <!-- - -->
-                <li class="news-item"><a href="">
-                    <div class="news-item__preview"><img src="uploads/images/news_item.jpg" alt=""></div>
-                    <div class="news-item__info">
-                      <h4 class="news-item__title">Знакомство с ментальной арифметикой...</h4><span class="news-item__date">23.04.2019</span>
-                      <p class="news-item__text">Наши маленькие подопечные продолжают развивать умственные и творческие способности.</p>
-                    </div></a></li>
-                <!-- - -->
-                <li class="news-item"><a href="">
-                    <div class="news-item__preview"><img src="uploads/images/news_item.jpg" alt=""></div>
-                    <div class="news-item__info">
-                      <h4 class="news-item__title">Знакомство с ментальной арифметикой...</h4><span class="news-item__date">23.04.2019</span>
-                      <p class="news-item__text">Наши маленькие подопечные продолжают развивать умственные и творческие способности.</p>
-                    </div></a></li>
-              </ul><a class="home-news__news-link" href="">Все новости</a>
+                      <h4 class="news-item__title" title="{{ $post->title }}">{{ $post->short_title }}</h4><span class="news-item__date">{{ $post->created_at }}</span>
+                      <p class="news-item__text">{!! $post->short_anotation !!}</p>
+                      <p class="news-item__more">Подробнее</p>
+                    </div>
+                  </a>
+                </li>
+              @endforeach
+                
+              </ul><a class="home-news__news-link" href="{{ route('kdl.news') }}">Все новости</a>
             </div>
           </div>
         </div>
