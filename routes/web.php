@@ -20,14 +20,20 @@ Route::group(['prefix' => '/'], function() {
 
     Route::get('/', 'HomeController@index')->name('kdl.home');
     
+    
 
     Route::get('/about', 'AboutController@index')->name('kdl.about');
     Route::get('/about/team', 'AboutController@team')->name('kdl.about.team');
     Route::get('/about/founders', 'AboutController@founders')->name('kdl.about.founders');
     Route::get('/about/trustees', 'AboutController@trustees')->name('kdl.about.trustees');
 
+
+    Route::resource('/pages', 'PagesController', ["names" => [
+        "index" => "kdl.pages",
+        "show" => "kdl.pages.show"
+    ]]);
     
-    // Route::get('/news', 'NewsController@index')->name('kdl.news');
+
     Route::resource('/news', 'NewsController', ["names" => [
         "index" => "kdl.news",
         "show" => "kdl.news.show"
