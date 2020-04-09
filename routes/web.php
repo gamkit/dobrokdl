@@ -20,18 +20,17 @@ Route::group(['prefix' => '/'], function() {
 
     Route::get('/', 'HomeController@index')->name('kdl.home');
     
-    
 
-    Route::get('/about', 'AboutController@index')->name('kdl.about');
     Route::get('/about/team', 'AboutController@team')->name('kdl.about.team');
     Route::get('/about/founders', 'AboutController@founders')->name('kdl.about.founders');
     Route::get('/about/trustees', 'AboutController@trustees')->name('kdl.about.trustees');
 
 
-    Route::resource('/pages', 'PagesController', ["names" => [
-        "index" => "kdl.pages",
-        "show" => "kdl.pages.show"
-    ]]);
+
+    // Route::get('/page/contacts', 'PagesController@contacts')->name('kdl.contacts');
+    // Route::get('/help', 'HelpController@financial')->name('kdl.help');
+    Route::get('/page/{slug}', 'PagesController@show')->name('kdl.pages');
+
     
 
     Route::resource('/news', 'NewsController', ["names" => [
@@ -51,10 +50,9 @@ Route::group(['prefix' => '/'], function() {
     /* 
     * Проекты
     */
-    Route::resource('/projects', 'ProjectsController', ["names" => [
-        "index" => "kdl.projects",
-        "show" => "kdl.projects.show"
-    ]]);
+ 
+    Route::get('/projects', 'ProjectsController@index')->name('kdl.projects');
+    Route::get('/projects/{id}', 'ProjectsController@show')->name('kdl.projects.show');
 
 
     Route::get('/volunteers', 'VolunteersController@index')->name('kdl.volunteers');
@@ -68,8 +66,7 @@ Route::group(['prefix' => '/'], function() {
     Route::get('/reports/financial', 'ReportsController@financial')->name('kdl.reports.financial');
 
 
-    Route::get('/contacts', 'ReportsController@financial')->name('kdl.contacts');
-    Route::get('/help', 'HelpController@financial')->name('kdl.help');
+    
 
 });
 

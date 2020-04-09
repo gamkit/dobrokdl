@@ -2,11 +2,11 @@
 
 @section('content')
 
-<main class="page page-news-item">
+<main class="page page-news-post ">
       <h3>Новость от {{ $post->created_at }}</h3>
       <!-- SECTION-->
-      <section class="news-item-box">
-        <div class="news-box__wrap">
+      <section class="news-post-box">
+        <div class="news-post-box __wrap">
           <div class="container">
             <div class="news-item">
               <div class="news-item__preview"><img src="/storage/{{ $post->image }}"" alt=""></div>

@@ -3,31 +3,11 @@
 @section('content')
 
 <main class="page page--volunteers">
-    <h3>Волонтеры</h3>
-    <!-- SECTION-->
-    <section class="volunteers-opening">
-      <div class="volunteers-opening__wrap">
-        <div class="container">
-          <div class="volunteers-opening__slogan"><img class="img-responsive" src="img/svg/volunteer_slogan.svg" alt=""></div>
-        </div>
-      </div>
-    </section>
-    <!-- SECTION-->
-    <section class="volunteers-desc">
-      <div class="volunteers-desc__wrap">
-        <div class="container">
-          <div class="row">
-            <div class="volunteers-desc__pic"><img class="img-responsive" src="img/volunteer_img_1.jpg" alt=""></div>
-            <p class="volunteers-desc__paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.</p>
-          </div>
-          <div class="row">
-            <p class="volunteers-desc__paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.</p>
-            <div class="volunteers-desc__pic"><img class="img-responsive" src="img/volunteer_img_2.jpg" alt=""></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- SECTION-->
+    <h3>{{ $page->title }}</h3>
+    
+    {!! $page->body !!}
+
+
     <section class="volunteers-members">
       <div class="volunteers-members__wrap">
         <div class="container">
@@ -77,6 +57,8 @@
         </div>
       </div>
     </section>
+
+
     <!-- SECTION-->
     <section class="volunteers-form">
       <div class="volunteers-form__wrap">

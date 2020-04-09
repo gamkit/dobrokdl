@@ -8,7 +8,7 @@
       <section class="projects-desc">
         <div class="projects-desc__wrap">
           <div class="container">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.</p>
+            <p>Здесь какое-то тематическое описание</p>
           </div>
         </div>
       </section>
@@ -19,51 +19,37 @@
           <div class="container">
             <div class="tabs tabs--theme--blue projects-box__tabs">
               <ul class="projects-box__tabs-list tabs__list row">
-                <li class="projects-box__tab-item tab-item tab-item--active" data-tab-index="0">Программы</li>
-                <li class="projects-box__tab-item tab-item" data-tab-index="1">Проекты</li>
+                <li class="projects-box__tab-item tab-item tab-item--active" data-tab-index="0">Проекты</li>
+                <li class="projects-box__tab-item tab-item" data-tab-index="1">Программы</li>
               </ul>
               <div class="tabs__content projects-box__carousels-list">
                 <!-- - Tab content-->
                 <ul class="tab-content-item tab-content-item--active projects-box__project-list project-list project-list--active owl-carousel project-list__owl-carousel owl-carousel--custom-nav-2" data-tab-index="0">
-                  <!-- - -->
-                  <li class="project-item">
-                    <div class="project-item__preview"><img src="uploads/images/project_item.jpg" alt=""></div>
-                    <div class="project-item__desc">
-                      <h4 class="project-item__title">Программа А</h4>
-                      <p class="project-item__date">Дата запуска: <b>23.04.2019</b></p>
-                      <p class="project-item__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</p><a class="btn btn--theme--white-to-orange" href>Перейти</a>
-                    </div>
-                  </li>
-                  <!-- - -->
-                  <li class="project-item">
-                    <div class="project-item__preview"><img src="uploads/images/project_item.jpg" alt=""></div>
-                    <div class="project-item__desc">
-                      <h4 class="project-item__title">Программа B</h4>
-                      <p class="project-item__date">Дата запуска: <b>23.04.2019</b></p>
-                      <p class="project-item__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</p><a class="btn btn--theme--white-to-orange" href>Перейти</a>
-                    </div>
-                  </li>
+                 
+                  @foreach($projects as $project)
+                    <li class="project-item" style="background-image: url(/storage/{{ $project->image }});">
+                      <div class="project-item__desc">
+                        <h4 class="project-item__title">{{ $project->name }}</h4>
+                        <p class="project-item__date">Дата запуска: <b>{{ $project->date }}</b></p>
+                        <p class="project-item__text">{{ $project->anotation }}</p>
+                        <a class="btn btn--theme--white-to-orange" href="{{ route('kdl.projects.show', ['id' => $project->id, 'type' => strtolower($project->type)]) }}">Перейти</a>
+                      </div>
+                    </li>
+                  @endforeach
+                  
                 </ul>
                 <!-- - Tab content -->
                 <ul class="tab-content-item projects-box__project-list project-list owl-carousel project-list__owl-carousel owl-carousel--custom-nav-2" data-tab-index="1">
-                  <!-- - -->
-                  <li class="project-item">
-                    <div class="project-item__preview"><img src="uploads/images/project_item.jpg" alt=""></div>
-                    <div class="project-item__desc">
-                      <h4 class="project-item__title">Проект А</h4>
-                      <p class="project-item__date">Дата запуска: <b>23.04.2019</b></p>
-                      <p class="project-item__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</p><a class="btn btn--theme--white-to-orange" href>Перейти</a>
-                    </div>
-                  </li>
-                  <!-- - -->
-                  <li class="project-item">
-                    <div class="project-item__preview"><img src="uploads/images/project_item.jpg" alt=""></div>
-                    <div class="project-item__desc">
-                      <h4 class="project-item__title">Проект B</h4>
-                      <p class="project-item__date">Дата запуска: <b>23.04.2019</b></p>
-                      <p class="project-item__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</p><a class="btn btn--theme--white-to-orange" href>Перейти</a>
-                    </div>
-                  </li>
+                  @foreach($programs as $program)
+                    <li class="project-item" style="background-image: url(/storage/{{ $program->image }});">
+                      <div class="project-item__desc">
+                        <h4 class="project-item__title">{{ $program->name }}</h4>
+                        <p class="project-item__date">Дата запуска: <b>{{ $program->date }}</b></p>
+                        <p class="project-item__text">{{ $program->anotation }}</p>
+                        <a class="btn btn--theme--white-to-orange" href="{{ route('kdl.projects.show', ['id' => $program->id, 'type' => strtolower($program->type)]) }}">Перейти</a>
+                      </div>
+                    </li>
+                  @endforeach
                 </ul>
               </div>
             </div>
