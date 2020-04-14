@@ -10,7 +10,7 @@ class NewsController extends Controller
     public function index() {
 
         $title = "Новости фонда";
-        $posts = Post::orderBy("created_at", "desc")->where("status", "=", "published")->paginate(12);
+        $posts = Post::news()->paginate(12);
 
         $data = [
             'title' => $title,
@@ -25,7 +25,6 @@ class NewsController extends Controller
         $post = Post::findOrFail($id);
         $title = $post->title;
         
-      
 
         $data = [
             'title' => $title,

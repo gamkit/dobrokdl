@@ -17,7 +17,7 @@ class HomeController extends Controller
         $urgentCollects = Collect::urgentCollects()->get();
         $collects = Collect::someCollects(12)->get()->merge($urgentCollects)->reverse();
 
-        $posts = Post::lastPosts(12)->get();
+        $posts = Post::lastNews(12)->get();
 
         $collectreports = Collectreport::take(3)->get();
 

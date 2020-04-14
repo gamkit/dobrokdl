@@ -8,12 +8,33 @@ use Carbon\Carbon;
 class Post extends Model
 {
 
-    public function scopeLastPosts($query, $count) {
+    // 
+    public function scopeLastNews($query, $count) {
         if($count == null) {
-            return $query->orderBy("created_at", "desc")->where("status", "=", "published")->take(20);
+            return $query->where("status", "=", "published")->where("category_id", "=", 1)->orderBy("created_at", "desc")->take(20);
         }
-        return $query->orderBy("created_at", "desc")->where("status", "=", "published")->take($count);
+        return $query->where("status", "=", "published")->where("category_id", "=", 1)->orderBy("created_at", "desc")->take($count);
     }
+
+    // 
+    public function scopeNews() {
+        return Post::where("status", "published")->where("category_id", 1)->orderBy("created_at", "desc");
+    }
+
+    // 
+    public function scopeDonors() {
+        return Post::where("status", "published")->where("category_id", 6)->orderBy("created_at", "desc");
+    }
+
+    // 
+    public function scopeMediaAboutDonors() {
+        return Post::where("status", "published")->where("category_id", 5)->orderBy("created_at", "desc");
+    }
+
+
+
+
+
 
 
     // Accessors

@@ -18,7 +18,7 @@
 
             
             @foreach($collects as $collect)
-            @php
+              @php
                 $collect_done = null;
                 $collect_urgent = null;
 
@@ -42,7 +42,7 @@
                     <div class="collect-item__title-urgent">Срочный сбор</div>
                   </div>
                   <div class="collect-item__desc">
-                    <p class="collect-item__name" title="{{ $collect->diagnoz }}"><b>{{ $collect->fullname }}</b>, {{ $collect->year }}<br/><span>{{ mb_strimwidth($collect->diagnoz, 0, 40, "...") }}</span></p>
+                    <p class="collect-item__name" title="{{ $collect->diagnoz }}"><b>{{ $collect->fullname }}</b>, {{ $collect->year }} лет<br/><span>{{ mb_strimwidth($collect->diagnoz, 0, 40, "...") }}</span></p>
                     <div class="collect-item__collect row">
                       <div class="collect-item__bar"><span style="width: {{ $collect->percent }}% ;"></span></div>
                       <p class="collect-item__collected">Собрано <br/><b>{{ $collect->collected_money }}</b></p>

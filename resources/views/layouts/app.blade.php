@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="description" content='Благотворительный фонд "Клуб Добрых Людей"'/>
         <meta name="keywords" content="бф, благотворительный фонд, ингушетия, назрань, клуб добрых людей, кдл, кдл добро, бф кдл"/>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <meta property="og:site_name" content='dobrokdl'/>
         <meta property="og:title" content='Благотворительный фонд "КДЛ"'/>

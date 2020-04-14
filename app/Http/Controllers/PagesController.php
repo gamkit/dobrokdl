@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Page;
+use App\Volunteer;
+use App\Post;
 class PagesController extends Controller
+
 {
     
     public function show($slug) {
-
-        
 
         switch ($slug) {
             case 'contacts':
@@ -18,6 +19,14 @@ class PagesController extends Controller
             
             case 'volunteers':
                 return $this->volunteers();
+                break;
+
+            case 'donorstvo-v-licah':
+                return $this->donors();
+                break;
+
+            case 'o-nas-pishut':
+                return $this->mediaAboutDonors();
                 break;
             
             default:
@@ -60,12 +69,43 @@ class PagesController extends Controller
 
         $page = Page::where("slug", "volunteers")->firstOrFail();
         $title = $page->title;
+        $volunteers = Volunteer::all();
+
 
         $data = [
             'title' => $title,
             'page' => $page,
+            'volunteers' => $volunteers,
         ];
 
         return view('pages.volunteers', $data);
     }
+    // 
+
+    public function donors() {
+
+        $title = "Донорство в лицах";
+        $posts = Post::donors()->paginate(12);
+
+        $data = [
+            'title' => $title,
+            'posts' => $posts,
+        ];
+        return view('news.index', $data);
+    }
+    // 
+
+    public function mediaAboutDonors() {
+
+        $title = "О нас пишут";
+        $posts = Post::mediaAboutDonors()->paginate(12);
+
+        $data = [
+            'title' => $title,
+            'posts' => $posts,
+        ];
+        return view('news.index', $data);
+    }
+
+    
 }

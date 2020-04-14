@@ -2,7 +2,7 @@
 
 @section('content')
 
-<main class="page page--volunteers">
+<main class="page page-volunteers">
     <h3>{{ $page->title }}</h3>
     
     {!! $page->body !!}
@@ -13,46 +13,19 @@
         <div class="container">
           <h4>Наши волонтеры</h4>
           <ul class="volunteers-members__members-list owl-carousel members-list__owl-carousel members-list owl-carousel--custom-nav-1">
-            <!-- - -->
-            <li class="member-item member-item--status--volunteer">
-              <div class="member-item__photo"><img class="img-responsive" src="uploads/images/member_item.jpg" alt="member_item"></div>
-              <div class="member-item__contacts">
-                <div class="member-item__name">Магомед Магомедов</div>
-                <div class="member-item__position">Менеджер</div>
-                <p class="member-item__connect"><b>Тел.:</b> 8 (928) 731-26-02</p>
-                <p class="member-item__connect"><b>Email.:</b> dobrokdl@gmail.com</p>
-              </div>
-            </li>
-            <!-- - -->
-            <li class="member-item member-item--status--volunteer">
-              <div class="member-item__photo"><img class="img-responsive" src="uploads/images/member_item.jpg" alt="member_item"></div>
-              <div class="member-item__contacts">
-                <div class="member-item__name">Магомед Магомедов</div>
-                <div class="member-item__position">Менеджер</div>
-                <p class="member-item__connect"><b>Тел.:</b> 8 (928) 731-26-02</p>
-                <p class="member-item__connect"><b>Email.:</b> dobrokdl@gmail.com</p>
-              </div>
-            </li>
-            <!-- - -->
-            <li class="member-item member-item--status--volunteer">
-              <div class="member-item__photo"><img class="img-responsive" src="uploads/images/member_item.jpg" alt="member_item"></div>
-              <div class="member-item__contacts">
-                <div class="member-item__name">Магомед Магомедов</div>
-                <div class="member-item__position">Менеджер</div>
-                <p class="member-item__connect"><b>Тел.:</b> 8 (928) 731-26-02</p>
-                <p class="member-item__connect"><b>Email.:</b> dobrokdl@gmail.com</p>
-              </div>
-            </li>
-            <!-- - -->
-            <li class="member-item member-item--status--volunteer">
-              <div class="member-item__photo"><img class="img-responsive" src="uploads/images/member_item.jpg" alt="member_item"></div>
-              <div class="member-item__contacts">
-                <div class="member-item__name">Магомед Магомедов</div>
-                <div class="member-item__position">Менеджер</div>
-                <p class="member-item__connect"><b>Тел.:</b> 8 (928) 731-26-02</p>
-                <p class="member-item__connect"><b>Email.:</b> dobrokdl@gmail.com</p>
-              </div>
-            </li>
+            
+            @foreach($volunteers as $volunteer)
+              <li class="member-item member-item--status--volunteer">
+                  <div class="member-item__photo" style="background-image: url(/storage/{{ $volunteer->photo }});"></div>
+                  <div class="member-item__contacts">
+                    <p class="member-item__name" title="{{ $volunteer->fullname }}">{{  $volunteer->fullname }} </p>
+                    <span>{{  $volunteer->age }} лет</span>
+                    <p class="member-item__position" title="{{ $volunteer->position }}">{{ $volunteer->position }}</p>
+                  </div>
+                
+              </li>
+            @endforeach
+            
           </ul>
         </div>
       </div>
@@ -72,7 +45,7 @@
                     <input type="text" placeholder="Имя"></span><span class="field field-text form-group__field">
                     <input type="text" placeholder="Отчество"></span></div>
                 <div class="form-group__fields-list row"><span class="field field-text form-group__field">
-                    <input type="text" placeholder="Дата рождения"></span><span class="field field-text form-group__field">
+                    <input type="date" placeholder="Дата рождения"></span><span class="field field-text form-group__field">
                     <input type="text" placeholder="Телефон"></span><span class="field field-text form-group__field">
                     <input type="text" placeholder="Email"></span></div><span class="field field-text">
                   <input type="text" placeholder="Адрес проживания"></span><span class="field field-text">
@@ -112,13 +85,13 @@
               <div class="form__group form-group">
                 <label class="form-group__checkbox-container"><span class="field field-checkbox"><i class="field-checkbox__checkmark glyph-check-1">
                       <input type="checkbox"></i>
-                    <p class="field-checkbox__title">Получение нового опыта</p></span></label>
+                    <p class="field-checkbox__title">Медицинская программа</p></span></label>
                 <label class="form-group__checkbox-container"><span class="field field-checkbox"><i class="field-checkbox__checkmark glyph-check-1">
                       <input type="checkbox"></i>
-                    <p class="field-checkbox__title">Встречи с новыми людьми</p></span></label>
+                    <p class="field-checkbox__title">Продуктовая программа</p></span></label>
                 <label class="form-group__checkbox-container"><span class="field field-checkbox"><i class="field-checkbox__checkmark glyph-check-1">
                       <input type="checkbox"></i>
-                    <p class="field-checkbox__title">Возможность помочь другим</p></span></label>
+                    <p class="field-checkbox__title">Образовательно-развлекательная</p></span></label>
               </div>
               <p class="form__title">9.	Какую помощь Вы готовы оказать:</p>
               <div class="form__group form-group">
@@ -142,13 +115,13 @@
                     <p class="field-checkbox__title">Оказывать юридическую консультативную помощь</p></span></label>
                 <label class="form-group__checkbox-container"><span class="field field-checkbox"><i class="field-checkbox__checkmark glyph-check-1">
                       <input type="checkbox"></i>
-                    <p class="field-checkbox__title">оказывать юридическую консультативную помощь</p></span></label>
+                    <p class="field-checkbox__title">Оказывать юридическую консультативную помощь</p></span></label>
                 <label class="form-group__checkbox-container"><span class="field field-checkbox"><i class="field-checkbox__checkmark glyph-check-1">
                       <input type="checkbox"></i>
-                    <p class="field-checkbox__title">оказывать бухгалтерскую консультативную помощь</p></span></label>
+                    <p class="field-checkbox__title">Оказывать бухгалтерскую консультативную помощь</p></span></label>
                 <label class="form-group__checkbox-container"><span class="field field-checkbox"><i class="field-checkbox__checkmark glyph-check-1">
                       <input type="checkbox"></i>
-                    <p class="field-checkbox__title">заниматься ведением и пополнением информацией сайта Фонда, социальных сетей и др. сайтов</p></span></label>
+                    <p class="field-checkbox__title">Заниматься ведением и пополнением информацией сайта фонда, социальных сетей и др. сайтов</p></span></label>
               </div>
               <p class="form__title">Помощь в качестве:</p>
               <div class="form__group form-group">

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<main class="page page--financial-reports">
+<main class="page page-financial-reports">
       <h3>Финансовые отчеты</h3>
       <!-- SECTION-->
       <section class="financial-reports-years">
@@ -10,72 +10,46 @@
           <div class="container">
             <div class="tabs tabs--theme--blue">
               <ul class="tabs__list row">
-                <li class="tab-item tab-item--active" data-tab-index="0">Программы</li>
-                <li class="tab-item" data-tab-index="1">Проекты</li>
+                <li class="tab-item tab-item--active" data-tab-index="0">Поступления</li>
+                <li class="tab-item" data-tab-index="1">Траты</li>
               </ul>
               <div class="tabs__content">
                 <!-- - -->
                 <div class="tab-content-item tab-content-item--active" data-tab-index="0">
                   <ul class="row">
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2012">
-                      <p class="financial-report-item__year">2012</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2013">
-                      <p class="financial-report-item__year">2013</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2014">
-                      <p class="financial-report-item__year">2014</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2015">
-                      <p class="financial-report-item__year">2015</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2016">
-                      <p class="financial-report-item__year">2016</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2017">
-                      <p class="financial-report-item__year">2017</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2018">
-                      <p class="financial-report-item__year">2018</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2019">
-                      <p class="financial-report-item__year">2019</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2020">
-                      <p class="financial-report-item__year">2020</p>
-                    </li>
+                    @foreach($income_reports as $report)
+                      @php
+                        
+                        $disabled_class = null;
+
+                        if($report["disabled"] === true) {
+                          $disabled_class = 'financial-report-item--disabled';
+                        } 
+                      @endphp
+
+                      <li class="financial-report-item {{ $disabled_class }} financial-reports-years__item" data-report-type="income" data-report-year="{{  $report['disabled'] ? '' : $report['label'] }}">
+                        <p class="financial-report-item__year">{{ $report['label'] }}</p>
+                      </li>
+                    @endforeach
                   </ul>
                 </div>
                 <!-- - -->
                 <div class="tab-content-item" data-tab-index="1">
                   <ul class="row">
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2012">
-                      <p class="financial-report-item__year">2012</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2013">
-                      <p class="financial-report-item__year">2013</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2014">
-                      <p class="financial-report-item__year">2014</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2015">
-                      <p class="financial-report-item__year">2015</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2016">
-                      <p class="financial-report-item__year">2016</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2017">
-                      <p class="financial-report-item__year">2017</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2018">
-                      <p class="financial-report-item__year">2018</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2019">
-                      <p class="financial-report-item__year">2019</p>
-                    </li>
-                    <li class="financial-report-item financial-reports-years__item" data-report-year="2020">
-                      <p class="financial-report-item__year">2020</p>
-                    </li>
+                    @foreach($waste_reports as $report)
+                      @php
+                        
+                        $disabled_class = null;
+
+                        if($report["disabled"] === true) {
+                          $disabled_class = 'financial-report-item--disabled';
+                        } 
+                      @endphp
+
+                      <li class="financial-report-item {{ $disabled_class }} financial-reports-years__item" data-report-type="waste" data-report-year="{{  $report['disabled'] ? '' : $report['label'] }}">
+                        <p class="financial-report-item__year">{{ $report['label'] }}</p>
+                      </li>
+                    @endforeach
                   </ul>
                 </div>
               </div>
@@ -88,42 +62,7 @@
         <div class="financial-reports-months__wrap">
           <button class="btn btn-close financial-reports-months__btn-close"></button>
           <ul class="financial-reports-months__list row-mg">
-            <li class="financial-report-item financial-report-item--type--month financial-reports-months__item" data-report-year="2012">
-              <p class="financial-report-item__month">Скачать отчет за</p><a class="financial-report-item__link" href="">Август</a>
-            </li>
-            <li class="financial-report-item financial-report-item--type--month financial-reports-months__item" data-report-year="2013">
-              <p class="financial-report-item__month">Скачать отчет за</p><a class="financial-report-item__link" href="">Август</a>
-            </li>
-            <li class="financial-report-item financial-report-item--type--month financial-reports-months__item" data-report-year="2014">
-              <p class="financial-report-item__month">Скачать отчет за</p><a class="financial-report-item__link" href="">Август</a>
-            </li>
-            <li class="financial-report-item financial-report-item--type--month financial-reports-months__item" data-report-year="2015">
-              <p class="financial-report-item__month">Скачать отчет за</p><a class="financial-report-item__link" href="">Август</a>
-            </li>
-            <li class="financial-report-item financial-report-item--type--month financial-reports-months__item" data-report-year="2016">
-              <p class="financial-report-item__month">Скачать отчет за</p><a class="financial-report-item__link" href="">Август</a>
-            </li>
-            <li class="financial-report-item financial-report-item--type--month financial-reports-months__item" data-report-year="2017">
-              <p class="financial-report-item__month">Скачать отчет за</p><a class="financial-report-item__link" href="">Август</a>
-            </li>
-            <li class="financial-report-item financial-report-item--type--month financial-reports-months__item" data-report-year="2018">
-              <p class="financial-report-item__month">Скачать отчет за</p><a class="financial-report-item__link" href="">Август</a>
-            </li>
-            <li class="financial-report-item financial-report-item--type--month financial-reports-months__item" data-report-year="2019">
-              <p class="financial-report-item__month">Скачать отчет за</p><a class="financial-report-item__link" href="">Август</a>
-            </li>
-            <li class="financial-report-item financial-report-item--type--month financial-reports-months__item" data-report-year="2020">
-              <p class="financial-report-item__month">Скачать отчет за</p><a class="financial-report-item__link" href="">Август</a>
-            </li>
-            <li class="financial-report-item financial-report-item--type--month financial-reports-months__item" data-report-year="2018">
-              <p class="financial-report-item__month">Скачать отчет за</p><a class="financial-report-item__link" href="">Август</a>
-            </li>
-            <li class="financial-report-item financial-report-item--type--month financial-reports-months__item" data-report-year="2019">
-              <p class="financial-report-item__month">Скачать отчет за</p><a class="financial-report-item__link" href="">Август</a>
-            </li>
-            <li class="financial-report-item financial-report-item--type--month financial-reports-months__item" data-report-year="2020">
-              <p class="financial-report-item__month">Скачать отчет за</p><a class="financial-report-item__link" href="">Август</a>
-            </li>
+            <!-- Code -->
           </ul>
         </div>
       </section>
@@ -139,5 +78,6 @@
         </div>
       </section>
     </main>
-
+    
+    <script src="/js/reports.js"></script>
 @endsection

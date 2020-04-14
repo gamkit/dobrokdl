@@ -12,16 +12,18 @@
           </ul>
         </div>
       </section>
+
       <section class="reports-links-box">
         <div class="reports-links-box__wrap">
           <div class="container">
             <ul class="reports-links-box__list">
-              <li class="reports-links-box__item"><a href="reports">Фото и видео</a></li>
-              <li class="reports-links-box__item"><a href="reports">Финансовые отчеты</a></li>
+              <li class="reports-links-box__item"><a href="{{ route('kdl.reports.media') }}">Фото и видео</a></li>
+              <li class="reports-links-box__item"><a href="{{ route('kdl.reports.financial') }}">Финансовые отчеты</a></li>
             </ul>
           </div>
         </div>
       </section>
+
     </main>
 
 @endsection

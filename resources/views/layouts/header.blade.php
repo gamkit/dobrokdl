@@ -5,7 +5,7 @@
         
         {!! Menu::display('kdl_menu', 'layouts.menus.topmenu') !!}
 
-        <div class="header__r-links row"><a class="header__help-link" href="help.html">Нужна помощь!</a>
+        <div class="header__r-links row"><a class="header__help-link" href="{{ route('kdl.pages', 'nuzhna-pomosh') }}">Нужна помощь!</a>
             <ul class="header__social-links social-links social-links--theme--white row">
             <li class="social-links__item"><a target="_blank" href="https://vk.com/dobrokdl"><i class="glyph-social-vk"></i></a></li>
             <li class="social-links__item"><a target="_blank" href="https://www.instagram.com/fond_kdl/"><i class="glyph-social-ig"></i></a></li>
