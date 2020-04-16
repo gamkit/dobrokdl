@@ -20,7 +20,7 @@
                 
             }
 
-            $isActive = null;
+            $active = null;
             $styles = null;
             $subitem_class = null;
 
@@ -31,21 +31,28 @@
 
             // Check if link is current
             if(url($item->link()) == url()->current()){
-                $isActive = 'active';
+                $active = 'navbar-item--active';
             }
 
         @endphp
 
-        <li class="{{ $isActive }} navbar-item {{ $subitem_class }}">
-            <a href="{{ url($item->link()) }}" target="{{ $item->target }}" style="{{ $styles }}">
-                {{ $item->title }}
-            </a>
+        <li class=" navbar-item {{ $subitem_class }} {{ $active }}">
+            <a href="{{ url($item->link()) }}" target="{{ $item->target }}" style="{{ $styles }}">{{ $item->title }}</a>
+
             @if(!$originalItem->children->isEmpty())
                     <div class="navbar-item__navbar navbar">
                         <ul class="navbar header__navbar">
-                @foreach($originalItem->children as $menu_item)
-                        <li class="navbar-item"><a href="{{ $menu_item->link() }}">{{ $menu_item->title }}</a></li>
-                @endforeach
+                            @foreach($originalItem->children as $menu_item)
+                                @php
+                                    if(url($menu_item->link()) == url()->current()){
+                                        $active = 'navbar-item--active';
+                                    }
+                                    else {
+                                        $active = null;
+                                    }
+                                @endphp
+                                <li class="navbar-item {{ $active }}"><a href="{{ url($menu_item->link()) }}">{{ $menu_item->title }}</a></li>
+                            @endforeach
                     </ul>
                 </div>
             @endif

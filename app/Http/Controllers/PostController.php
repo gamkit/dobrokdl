@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 
-class NewsController extends Controller
+class PostController extends Controller
 {
     public function index() {
 
@@ -33,4 +33,19 @@ class NewsController extends Controller
 
         return view('news.show', $data);
     }
+
+    // 
+
+    public function medianews() {
+
+        $title = "Новости фонда";
+        $posts = Post::medianews()->paginate(12);
+
+        $data = [
+            'title' => $title,
+            'posts' => $posts,
+        ];
+        return view('news.index', $data);
+    }
+
 }

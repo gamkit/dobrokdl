@@ -6,18 +6,11 @@
                 <use class="svg-logo" xlink:href="#svg-logo-white"></use>
             </svg>
         </div>
-        <nav class="footer__nav nav">
-        <ul class="footer__navbar navbar navbar--theme--white row">
-            <li class="navbar-item footer__navbar-item"><a href="index.html">Главная</a></li>
-            <li class="navbar-item footer__navbar-item"><a href="news.html">Новости</a></li>
-            <li class="navbar-item footer__navbar-item"><a href="projects.html">Проекты</a></li>
-            <li class="navbar-item footer__navbar-item"><a href="volunteers.html">Помощь</a></li>
-            <li class="navbar-item footer__navbar-item"><a href="contacts.html">Контакты</a></li>
-        </ul>
-        </nav>
+      
+        {!! Menu::display('kdl_footer_menu', 'layouts.menus.bottommenu') !!}
     </div>
     <div class="footer__info-box">
-        <div class="container"><a class="footer__btn-donut btn btn-donut btn--theme--orange btn--shadow--black" href=""><span>Помочь сейчас</span><i class="btn__glyph glyph-kid"></i></a>
+        <div class="container"><a class="footer__btn-donut btn btn-donut btn--theme--orange btn--shadow--black" href="{{ route('kdl.donut') }}"><span>Помочь сейчас</span><i class="btn__glyph glyph-kid"></i></a>
         <div class="footer__base-contacts base-contacts">
             <ul class="base-contacts__list row">
             <li class="base-contacts__item base-contacts__item">

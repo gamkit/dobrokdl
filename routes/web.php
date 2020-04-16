@@ -17,6 +17,7 @@ Route::group(['prefix' => '/'], function() {
 
 
     Route::get('/', 'HomeController@index')->name('kdl.home');
+    Route::get('/donut', 'HomeController@donut')->name('kdl.donut');
 
 
     /* 
@@ -46,11 +47,11 @@ Route::group(['prefix' => '/'], function() {
     * Новости
     */
 
-    Route::resource('/news', 'NewsController', ["names" => [
+    Route::resource('/news', 'PostController', ["names" => [
         "index" => "kdl.news",
         "show" => "kdl.news.show"
     ]]);
-    Route::get('/medianews', 'MediaNewsController@index')->name('kdl.medianews');
+    Route::get('/medianews', 'PostController@medianews')->name('kdl.medianews');
 
 
 
@@ -99,9 +100,12 @@ Route::group(['prefix' => '/'], function() {
     // Формы & AJAX
 
     Route::post('/ajax/reports/financial', 'ReportsController@getFinancialReports');
+    
+    // 
+    Route::post('/form/question', 'FormsController@question')->name('kdl.forms.question');
+    Route::post('/form/volunteer', 'FormsController@volunteer')->name('kdl.forms.volunteer');
 
-    Route::post('/form/question', 'FormsController@question');
-    Route::post('/form/volunteer', 'FormsController@volunteer');
+    Route::get('/form/done', 'FormsController@formDone')->name('kdl.forms.done');
 });
 
 

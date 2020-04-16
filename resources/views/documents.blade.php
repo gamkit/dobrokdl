@@ -2,8 +2,8 @@
 
 @section('content')
 
-<main class="page page--documents">
-      <h3>Документы фонда</h3>
+<main class="page page-documents">
+      <h3>{{ $title }}</h3>
       <!-- SECTION-->
       <section class="documents-box">
         <div class="documents-box__wrap">

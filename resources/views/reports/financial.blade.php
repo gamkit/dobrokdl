@@ -61,6 +61,7 @@
       <section class="financial-reports-months">
         <div class="financial-reports-months__wrap">
           <button class="btn btn-close financial-reports-months__btn-close"></button>
+          <i class="icon icon-spinner financial-reports-months__icon-spinner"></i>
           <ul class="financial-reports-months__list row-mg">
             <!-- Code -->
           </ul>
@@ -72,7 +73,7 @@
           <div class="action-block financial-reports__action-block bg-gradient--orange">
             <div class="container">
               <h3 class="action-block__question">Хотите участвовать в волонтерстве?</h3>
-              <button class="btn btn--theme--white-to-blue action-block__btn">Напишите нам</button>
+              <a href="{{ route('kdl.pages', 'volunteers#form_volunteers') }}" class="btn btn--theme--white-to-blue action-block__btn">Напишите нам</a>
             </div>
           </div>
         </div>

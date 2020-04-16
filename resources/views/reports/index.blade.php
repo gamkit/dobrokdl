@@ -4,14 +4,7 @@
 
 <main class="page page--reports">
       <h3>Отчеты</h3>
-      <section class="breadcumbs">
-        <div class="container">
-          <ul class="breadcumbs__list row-mg">
-            <li class="breadcumb-item"><a href="/">Главная</a></li>
-            <li class="breadcumb-item"><a href="">Отчеты</a></li>
-          </ul>
-        </div>
-      </section>
+      
 
       <section class="reports-links-box">
         <div class="reports-links-box__wrap">

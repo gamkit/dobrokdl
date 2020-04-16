@@ -7,7 +7,7 @@
       <section class="gallery-reports">
         <div class="gallery-reports__wrap">
           <div class="container">
-            <h4 class="txt-color--orange">{{ $title }}</h4>
+            <h4 class="txt-color--orange">Фотооотчеты</h4>
             <ul class="gallery-reports__reports-list owl-carousel gallery-reports__owl-carousel gallery-reports-list owl-carousel--custom-nav-2">
               @foreach($media_reports as $report)
               <li class="gallery-item">
@@ -31,25 +31,20 @@
             <h4 class="txt-color--blue">Видеоотчеты</h4>
             <ul class="gallery-reports__reports-list owl-carousel gallery-reports__owl-carousel gallery-reports-list owl-carousel--custom-nav-2">
               <!-- - -->
+              @foreach($video_reports as $report)
               <li class="gallery-item gallery-item--type--video">
-                <div class="gallery-item__photo" style="background-image: url(/img/help_item_bg_2.jpg)"></div>
+                <a data-fancybox href="{{ $report->link }}">
+                   <div class="gallery-item__photo" style="background-image: url(https://img.youtube.com/vi/{{ $report->video_id }}/mqdefault.jpg)"></div>
+                </a>
+                <h4> {{ $report->name }}</h4>
               </li>
-              <!-- - -->
-              <li class="gallery-item gallery-item--type--video">
-                <div class="gallery-item__photo" style="background-image: url(/img/help_item_bg_2.jpg)"></div>
-              </li>
-              <!-- - -->
-              <li class="gallery-item gallery-item--type--video">
-                <div class="gallery-item__photo" style="background-image: url(/img/help_item_bg_2.jpg)"></div>
-              </li>
-              <!-- - -->
-              <li class="gallery-item gallery-item--type--video">
-                <div class="gallery-item__photo" style="background-image: url(/img/help_item_bg_2.jpg)"></div>
-              </li>
-            </ul>
+              @endforeach
+ 
+ 
           </div>
         </div>
       </section>
     </main>
+ 
 
 @endsection

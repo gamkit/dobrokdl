@@ -33,4 +33,16 @@ class HomeController extends Controller
 
         return view('home', $data);
     }
+
+
+    
+    public function donut() {
+        $title = "Пожертвовать";
+        
+        $data = [
+            'title' => $title
+        ];
+
+        return view('donut', $data);
+    }
 }

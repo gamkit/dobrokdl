@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\VideoReport;
 use App\MediaReport;
 use App\FinancialReport;
 
 class ReportsController extends Controller
 {
     public function index() {
-        $title = "Отчеты";
         
+        $title = "Отчеты";
 
         $data = [
             'title' => $title,
        
         ];
-        
 
         return view('reports.index', $data);
     }
@@ -24,12 +24,14 @@ class ReportsController extends Controller
 
     public function media() {
 
-        $title = "Фотоотчеты";
+        $title = "Фото и видео отчеты";
         $media_reports = MediaReport::orderBy("created_at")->get();
+        $video_reports = VideoReport::orderBy("created_at")->get();
 
         $data = [
             'title' => $title,
             'media_reports' => $media_reports,
+            'video_reports' => $video_reports,
         ];
         
 

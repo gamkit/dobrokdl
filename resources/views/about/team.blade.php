@@ -33,7 +33,7 @@
           <div class="action-block team-action__action-block bg-gradient--blue">
             <div class="container">
               <h3 class="action-block__question">Хотите участвовать в волонтерстве?</h3>
-              <button class="btn btn--theme--white-to-orange action-block__btn">Напишите нам</button>
+              <a href="{{ route('kdl.pages', 'volunteers#form_volunteers') }}" class="btn btn--theme--white-to-orange action-block__btn">Напишите нам</a>
             </div>
           </div>
         </div>

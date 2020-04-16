@@ -2,15 +2,13 @@
 
     let reports = [...document.querySelectorAll(".financial-reports-years__item")];
     let months = document.querySelector('.financial-reports-months__list');
+    let loadingSpinner = document.querySelector('.financial-reports-months__icon-spinner');
     const token = getMeta('csrf-token');
 
-    console.log(token)
+
     reports.forEach((item) => {
       item.addEventListener('click', (e) => {
-        let data = null;
-        let year = null;
-        let reportType = null;
-        let res = null;
+        let data = null, year = null, reportType = null, res = null;
 
         e.preventDefault();
 
@@ -47,7 +45,7 @@
           response.json().then((monthsList) => {
             let liItem = '';
             
-            months.closest('.financial-reports-months__wrap').classList.add('financial-reports-months--active');
+            loadingSpinner.classList.remove('icon-spinner--active');
             
             monthsList.forEach((item) => {
               liItem += 

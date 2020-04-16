@@ -22,6 +22,11 @@ class Post extends Model
     }
 
     // 
+    public function scopeMedianews() {
+        return Post::where("status", "published")->where("category_id", 7)->orderBy("created_at", "desc");
+    }
+
+    // 
     public function scopeDonors() {
         return Post::where("status", "published")->where("category_id", 6)->orderBy("created_at", "desc");
     }

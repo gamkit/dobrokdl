@@ -7,8 +7,8 @@
         <div class="home-opening__wrap">
           <div class="home-opening__video">
             <video muted autoplay loop playsinline>
-              <source src="uploads/video/home.webm" type="video/webm">
-              <source src="uploads/video/home.mp4" type="video/mp4">
+              <source src="/storage/home.webm" type="video/webm">
+              <source src="/storage/home.mp4" type="video/mp4">
             </video>
           </div>
         </div>

@@ -21,7 +21,7 @@
         </div><a class="header__logo" href="/">
                 <svg class="svg-logo">
                 <use class="svg-logo" xlink:href="#svg-logo"></use>
-                </svg></a><a class="header__btn-donut btn btn-donut--sm--icon btn-donut btn--theme--orange" href=""><span>Помочь </span><i class="btn__glyph glyph-kid"></i></a>
+                </svg></a><a class="header__btn-donut btn btn-donut--sm--icon btn-donut btn--theme--orange" href="{{ route('kdl.donut') }}"><span>Помочь </span><i class="btn__glyph glyph-kid"></i></a>
         </div>
     </div>
     </div>
