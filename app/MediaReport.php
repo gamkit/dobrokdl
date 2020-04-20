@@ -12,8 +12,8 @@ class MediaReport extends Model
     }
     
     
-    public function getImagesAttribute($value) {
-        return json_decode($value, true) ;
+    public function getImagesListAttribute() {
+        return json_decode($this->images, true) ;
     }
 
     

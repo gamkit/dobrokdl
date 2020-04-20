@@ -1,6 +1,6 @@
 <svg width="130" height="121" viewBox="0 0 130 121" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_dd)">
-<path d="M106.282 82.8584L106.278 82.8527L71.2815 21.3585C71.281 21.3575 71.2805 21.3566 71.2799 21.3556C69.5853 18.2865 66.4113 16.5 62.7437 16.5C59.0664 16.5 56.0022 18.2939 54.2124 21.3471L54.2123 21.3471L54.2092 21.3527L19.2092 82.8527L19.2091 82.8527L19.2059 82.8585C17.523 85.9088 17.523 89.5912 19.2059 92.6415C20.8988 95.7098 24.0719 97.5 27.6437 97.5H97.5437C101.109 97.5 104.277 95.7163 105.972 92.6581C107.97 89.597 107.963 85.9054 106.282 82.8584ZM67.3437 81.9H59.0437V74.8H67.3437V81.9ZM67.3437 69.1H59.0437V46.9H67.3437V69.1Z" fill="url(#paint0_linear)" stroke="url(#paint1_linear)"/>
+<path d="M106.282 82.8584L106.278 82.8527L71.2815 21.3585C71.281 21.3575 71.2805 21.3566 71.2799 21.3556C69.5853 18.2865 66.4113 16.5 62.7437 16.5C59.0664 16.5 56.0022 18.2939 54.2124 21.3471L54.2123 21.3471L54.2092 21.3527L19.2092 82.8527L19.2091 82.8527L19.2059 82.8585C17.523 85.9088 17.523 89.5912 19.2059 92.6415C20.8988 95.7098 24.0719 97.5 27.6437 97.5H97.5437C101.109 97.5 104.277 95.7163 105.972 92.6581C107.97 89.5969 107.963 85.9054 106.282 82.8584ZM67.3437 81.9H59.0437V74.8H67.3437V81.9ZM67.3437 69.1H59.0437V46.9H67.3437V69.1Z" fill="url(#paint0_linear)" stroke="url(#paint1_linear)"/>
 </g>
 <defs>
 <filter id="filter0_dd" x="0.443726" y="0" width="128.565" height="121" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -18,8 +18,8 @@
 <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow" result="shape"/>
 </filter>
 <linearGradient id="paint0_linear" x1="18.4437" y1="17" x2="98.0299" y2="105.126" gradientUnits="userSpaceOnUse">
-<stop stop-color="#ECECEC"/>
-<stop offset="1" stop-color="#D7D7D7"/>
+<stop stop-color="#FF7B17"/>
+<stop offset="1" stop-color="#FF4D14"/>
 </linearGradient>
 <linearGradient id="paint1_linear" x1="18.4437" y1="17" x2="98.0299" y2="105.126" gradientUnits="userSpaceOnUse">
 <stop stop-color="white"/>

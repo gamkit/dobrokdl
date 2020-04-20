@@ -62,7 +62,7 @@ class ReportsController extends Controller
         $years_list = null;
         $min_year = 2015; 
         
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 6; $i++) {
             $flag = true;
             $min_year++;
             $years_list[$i] = [
@@ -100,8 +100,8 @@ class ReportsController extends Controller
 
         $data = [
             'title' => $title,
-            'income_reports' => $income_reports,
-            'waste_reports' => $waste_reports,
+            'income_reports' => array_reverse($income_reports),
+            'waste_reports' => array_reverse($waste_reports),
         ];
 
         return view('reports.financial', $data);
