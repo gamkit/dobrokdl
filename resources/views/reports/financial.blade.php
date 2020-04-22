@@ -80,5 +80,5 @@
       </section>
     </main>
     
-    <script src="/js/reports.js"></script>
+    <script src="/js/reports.js?id=01"></script>
 @endsection

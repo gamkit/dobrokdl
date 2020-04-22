@@ -11,7 +11,8 @@
         let data = null, year = null, reportType = null, res = null;
 
         e.preventDefault();
-
+        months.innerHTML = '';
+        
         if(item.dataset.reportYear !== '') {
           year = item.dataset.reportYear;
           if(item.dataset.reportType === "income" || item.dataset.reportType === "waste") { 
@@ -44,9 +45,10 @@
         res.then(response => {
           response.json().then((monthsList) => {
             let liItem = '';
-            
+
             loadingSpinner.classList.remove('icon-spinner--active');
             
+           
             monthsList.forEach((item) => {
               liItem += 
               `<li class="financial-report-item financial-report-item--type--month ${ item.disabled ? 'financial-report-item--disabled' : '' } financial-reports-months__item">
