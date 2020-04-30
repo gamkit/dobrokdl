@@ -38,7 +38,7 @@ class PostController extends Controller
 
     public function medianews() {
 
-        $title = "Новости фонда";
+        $title = "СМИ о нас";
         $posts = Post::medianews()->paginate(12);
 
         $data = [
